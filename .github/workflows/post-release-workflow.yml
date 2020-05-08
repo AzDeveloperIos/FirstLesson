@@ -9,10 +9,10 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: Actions-R-Us/actions-tagger@latest
+        with:
+          publish_latest_tag: true
         env:
           GITHUB_TOKEN: "${{secrets.GITHUB_TOKEN}}"
-        with:
-          - publish_latest_tag: true
 
 # jobs: 
 #   update-latest-tag:
