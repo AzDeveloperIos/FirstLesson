@@ -4,18 +4,28 @@ on:
   release:
     types: [published]
 
-jobs: 
-  update-latest-tag:
-    runs-on: ubuntu-latest 
-    steps:
-    - name: checkout
-      uses: actions/checkout@v1
+  jobs:
+    actions-tagger:
+      runs-on: windows-latest
+      steps:
+        - uses: Actions-R-Us/actions-tagger@latest
+          env:
+            GITHUB_TOKEN: "${{secrets.GITHUB_TOKEN}}"
+          with:
+            - publish_latest_tag: true
+            
+# jobs: 
+#   update-latest-tag:
+#     runs-on: ubuntu-latest 
+#     steps:
+#     - name: checkout
+#       uses: actions/checkout@v1
 
-    - name: update and push tag
-      uses: EndBug/latest-tag@v1.3.1
-      with:
-        tag-name: latest
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#     - name: update and push tag
+#       uses: EndBug/latest-tag@v1.3.1
+#       with:
+#         tag-name: latest
+#       env:
+#         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         
 
