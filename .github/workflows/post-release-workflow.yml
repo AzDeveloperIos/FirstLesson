@@ -4,16 +4,16 @@ on:
   release:
     types: [published]
 
-  jobs:
-    actions-tagger:
-      runs-on: windows-latest
-      steps:
-        - uses: Actions-R-Us/actions-tagger@latest
-          env:
-            GITHUB_TOKEN: "${{secrets.GITHUB_TOKEN}}"
-          with:
-            - publish_latest_tag: true
-            
+jobs:
+  actions-tagger:
+    runs-on: windows-latest
+    steps:
+      - uses: Actions-R-Us/actions-tagger@latest
+        env:
+          GITHUB_TOKEN: "${{secrets.GITHUB_TOKEN}}"
+        with:
+          - publish_latest_tag: true
+
 # jobs: 
 #   update-latest-tag:
 #     runs-on: ubuntu-latest 

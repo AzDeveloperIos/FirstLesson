@@ -22,6 +22,6 @@ jobs:
         token: ${{ secrets.PIPELINE_TOKEN }}
         tag: ${{ steps.app-version.outputs.VERSION }}
         commit: master
-        name: Initial release
+        name: Second release
         bodyFile: ./docs/release_notes/v0.1.0.md
   
