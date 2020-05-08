@@ -3,7 +3,7 @@ name: Release
 on: 
   push: 
     branches:
-      - develop
+      - master
 
 jobs:
   github_release:  
@@ -21,7 +21,7 @@ jobs:
       with:
         token: ${{ secrets.ACCESS_TOKEN }}
         tag: ${{ steps.app-version.outputs.VERSION }}
-        commit: develop
+        commit: master
         name: ScriptCheck v0.4.0
         bodyFile: ./docs/release_notes/v0.1.0.md
   
