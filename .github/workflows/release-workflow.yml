@@ -1,0 +1,27 @@
+name: Release 
+
+on: 
+  push: 
+    branches:
+      - master
+
+jobs:
+  github_release:  
+    runs-on: ubuntu-latest 
+    steps:
+    - name: Checkout 
+      uses: actions/checkout@v1
+
+    - name: set version
+      id: app-version
+      run: echo ::set-output name=VERSION::$(./docs/version)
+      
+    - name: Tag commit and release
+      uses: ncipollo/release-action@v1
+      with:
+        token: ${{ secrets.PIPELINE_TOKEN }}
+        tag: ${{ steps.app-version.outputs.VERSION }}
+        commit: master
+        name: Fourth release
+        bodyFile: ./docs/release_notes/v0.2.0.md
+  
