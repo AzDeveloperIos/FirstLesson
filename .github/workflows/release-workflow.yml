@@ -19,7 +19,7 @@ jobs:
     - name: Tag commit and release
       uses: ncipollo/release-action@v1
       with:
-        token: ${{ secrets.ACCESS_TOKEN }}
+        token: ${{ secrets.PIPELINE_TOKEN }}
         tag: ${{ steps.app-version.outputs.VERSION }}
         commit: master
         name: ScriptCheck v0.4.0
