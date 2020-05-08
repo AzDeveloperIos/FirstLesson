@@ -1,0 +1,23 @@
+name: PR Workflow
+
+on:
+  # Execute only on PR that target master branches
+  # push
+  pull_request:
+    branches:
+    - master
+
+jobs:
+  # Run job that executes the bash script
+  lint:
+    runs-on: ubuntu-latest
+    steps:    
+      - name: checkout
+        uses: actions/checkout@v1
+
+      # - name: bash check
+      #   run: find . -type f -perm /111 ! -path "./.git/*" 
+
+      - name: Lint check
+        uses: azohra/shell-linter@master
+        # run: pwd
