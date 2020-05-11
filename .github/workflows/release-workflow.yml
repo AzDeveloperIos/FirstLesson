@@ -22,7 +22,7 @@ jobs:
         token: ${{ secrets.GITHUB_TOKEN }}
         tag: ${{ steps.app-version.outputs.VERSION }}
         commit: master
-        name: Fifth release
+        name: Sixth release
         bodyFile: ./docs/release_notes/v0.2.0.md
 
     - name: Update latest tag
