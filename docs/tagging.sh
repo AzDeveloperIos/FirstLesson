@@ -5,7 +5,6 @@ owner="AzDeveloperIos"
 repo="FirstLesson"
 tag_name="latest"
 commit_sha=$(git log -n1 --format=format:"%H")
-# current_branch=$(git rev-parse --abbrev-ref HEAD)
 
 create_tag(){
 command="curl -i \
