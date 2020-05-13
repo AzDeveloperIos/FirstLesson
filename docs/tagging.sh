@@ -5,7 +5,7 @@ owner="AzDeveloperIos"
 repo="FirstLesson"
 tag_name="latest"
 commit_sha=$(git log -n1 --format=format:"%H")
-current_branch=$(git rev-parse --abbrev-ref HEAD)
+# current_branch=$(git rev-parse --abbrev-ref HEAD)
 
 create_tag(){
 command="curl -i \
@@ -28,9 +28,10 @@ https://api.github.com/repos/$owner/$repo/git/refs/tags/$tag_name"
 eval "$command"
 }
 
-if git tag --list | egrep -q "$tag_name"
-then
+if git tag --list | grep -Eq "$tag_name" ; then
+    echo "Updating the 'latest' tag"
     update_tag
 else
-   create_tag
+    echo "Creating a 'latest' tag"
+    create_tag
 fi
